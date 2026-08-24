@@ -1,0 +1,40 @@
+name: Materialize website assets
+
+on:
+  push:
+    paths:
+      - 'assets/**'
+      - '.github/workflows/materialize-assets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build binary assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat assets/portrait-0.b64 assets/portrait-1.b64 | tr -d '\n\r ' | base64 --decode > photo.webp
+          cat assets/cv-0.b64 assets/cv-1.b64 assets/cv-2.b64 assets/cv-3.b64 | tr -d '\n\r ' | base64 --decode | gzip --decompress > cv.pdf
+          file photo.webp cv.pdf
+
+      - name: Commit materialized assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add photo.webp cv.pdf
+          if git diff --cached --quiet; then
+            echo "Assets are already current."
+            exit 0
+          fi
+          git commit -m "Materialize website binary assets"
+          git push
