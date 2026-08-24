@@ -1,8 +1,9 @@
 :root {
   --text: #222;
   --muted: #6a6a6a;
-  --link: #2a5db0;
-  --rule: #e0e0e0;
+  --purple: #6f2da8;
+  --purple-dark: #552080;
+  --rule: #e3d8ec;
   --page-width: 980px;
 }
 
@@ -25,11 +26,12 @@ body {
 }
 
 a {
-  color: var(--link);
+  color: var(--purple);
   text-decoration: none;
 }
 
 a:hover {
+  color: var(--purple-dark);
   text-decoration: underline;
 }
 
@@ -50,10 +52,11 @@ a:hover {
 
 .portrait {
   display: block;
-  width: 168px;
-  height: 168px;
+  width: 178px;
+  height: 178px;
   object-fit: cover;
   margin: 0 0 24px;
+  border-radius: 3px;
 }
 
 h1 {
@@ -96,7 +99,7 @@ h1 {
 }
 
 .sidebar nav a {
-  color: #444;
+  color: var(--purple);
   font-size: 0.92rem;
 }
 
@@ -120,6 +123,7 @@ section {
 }
 
 h2 {
+  color: var(--purple-dark);
   font-size: 1.32rem;
   line-height: 1.2;
   font-weight: 600;
@@ -159,27 +163,6 @@ h3 {
 .resource-links {
   margin-top: 3px !important;
   font-size: 0.93rem;
-}
-
-.research-item {
-  margin-bottom: 23px;
-}
-
-.research-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 18px;
-}
-
-.research-heading span {
-  color: var(--muted);
-  white-space: nowrap;
-  font-size: 0.91rem;
-}
-
-.research-item p {
-  margin: 4px 0 0;
 }
 
 .presentation-list {
@@ -239,15 +222,6 @@ footer {
     flex-wrap: wrap;
     gap: 6px 16px;
     margin-top: 18px;
-  }
-
-  .research-heading {
-    display: block;
-  }
-
-  .research-heading span {
-    display: block;
-    margin-top: 2px;
   }
 
   .course-columns {
