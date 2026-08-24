@@ -74,37 +74,14 @@ a:hover {
   align-items: start;
 }
 
-/* Let the profile and About become direct grid items of .page. */
-.profile-section {
-  display: contents;
-}
-
 .profile-card {
-  width: 100%;
   grid-column: 1;
-  grid-row: 1 / span 4;
+  width: 100%;
 }
 
-.about-text {
+.content-column {
+  grid-column: 2;
   min-width: 0;
-  grid-column: 2;
-  grid-row: 1;
-  margin-bottom: 26px;
-}
-
-#papers {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-#presentations {
-  grid-column: 2;
-  grid-row: 3;
-}
-
-footer {
-  grid-column: 2;
-  grid-row: 4;
 }
 
 .portrait {
@@ -154,8 +131,12 @@ h1 {
 }
 
 section {
-  margin-bottom: 48px;
+  margin-bottom: 42px;
   scroll-margin-top: 20px;
+}
+
+#about {
+  margin-bottom: 28px;
 }
 
 h2 {
@@ -245,15 +226,7 @@ footer {
     display: block;
   }
 
-  .profile-section {
-    display: contents;
-  }
-
   .profile-card {
-    margin-bottom: 34px;
-  }
-
-  .about-text {
     margin-bottom: 34px;
   }
 
