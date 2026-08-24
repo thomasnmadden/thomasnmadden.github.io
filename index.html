@@ -3,148 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Thomas Madden — Mathematics at UC San Diego. Research in sampling, high-dimensional probability, optimization, and random matrices.">
+  <meta name="description" content="Thomas Madden — Mathematics at UC San Diego. Research interests in probability theory, optimization, and the mathematics of machine learning.">
   <title>Thomas Madden</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-    <aside class="sidebar">
-      <img class="portrait" src="photo.jpg" alt="Thomas Madden">
+  <header class="site-header">
+    <nav class="header-inner" aria-label="Primary navigation">
+      <a href="#about">Home</a>
+      <a href="#papers">Papers</a>
+      <a href="#presentations">Presentations</a>
+      <a href="cv.pdf">CV</a>
+      <a href="https://scholar.google.com/citations?user=GTYJAu4AAAAJ&hl=en">Google Scholar</a>
+    </nav>
+  </header>
 
-      <h1>Thomas Madden</h1>
-      <p class="role">Mathematics</p>
-      <p class="institution">University of California, San Diego</p>
-
-      <div class="sidebar-links">
-        <a href="mailto:thomasmadden763@gmail.com">Email</a>
-        <a href="cv.pdf">CV</a>
-        <a href="https://scholar.google.com/citations?user=GTYJAu4AAAAJ&hl=en">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/thomas-n-madden/">LinkedIn</a>
+  <main class="page">
+    <section id="about" class="profile-section">
+      <div class="profile-card">
+        <img class="portrait" src="photo.jpg" alt="Thomas Madden">
+        <h1>Thomas Madden</h1>
+        <p class="role">Mathematics</p>
+        <p class="institution">University of California, San Diego</p>
+        <p class="contact">Email: thmadden@ucsd.edu</p>
+        <p class="profile-link"><a href="https://www.linkedin.com/in/thomas-n-madden/">LinkedIn</a></p>
       </div>
 
-      <nav aria-label="Page sections">
-        <a href="#about">About</a>
-        <a href="#papers">Papers</a>
-        <a href="#presentations">Presentations</a>
-        <a href="#coursework">Coursework</a>
-      </nav>
-    </aside>
-
-    <main>
-      <section id="about" class="intro">
+      <div class="about-text">
+        <h2>About</h2>
         <p>
-          I am an undergraduate in mathematics at UC San Diego. My research interests are in
-          <strong>sampling</strong>, <strong>high-dimensional probability</strong>, and
-          <strong>optimization</strong>.
+          I am an undergraduate in mathematics at UC San Diego. I'm broadly interested in probability theory,
+          optimization, and the mathematics of machine learning.
         </p>
 
         <p>
-          I am particularly interested in the interaction between probability, geometry, and
-          optimization in the design and analysis of algorithms for sampling and large-scale
-          computational problems.
+          This past summer, I worked with <a href="https://yifanc96.github.io/">Yifan Chen</a> on establishing
+          sharp convergence guarantees for Fisher-Rao and Wasserstein-Fisher-Rao gradient flows as a participant
+          in the UCLA Computational and Applied Mathematics (CAM) REU. Previously, I worked on
+          <a href="https://arxiv.org/abs/2512.04523">acceleration for the proximal bundle method</a> in the
+          <a href="https://zhengy09.github.io/soclab.html">SOC Lab</a> with Yang Zheng and on
+          <a href="https://arxiv.org/abs/2608.16796">eigenvalue statistics for various random matrix groups</a>
+          with <a href="https://seanpkh.github.io/">Sean Howe</a>. I'm also doing an honors thesis in mathematics
+          with <a href="https://sites.google.com/ucsd.edu/rwebber/">Rob Webber</a> on randomized numerical linear algebra.
         </p>
-      </section>
 
-      <section id="papers">
-        <h2>Papers</h2>
+        <p>
+          Outside of math, I like watching movies, drinking coffee, fashion, and traveling.
+        </p>
+      </div>
+    </section>
 
-        <ol class="publications">
-          <li>
-            <p>
-              <a class="paper-title" href="https://proceedings.mlr.press/v331/liao26a.html">
-                An accelerated proximal bundle method for convex optimization
-              </a><br>
-              F.-Y. Liao, T. Madden, and Y. Zheng.<br>
-              <em>L4DC 2026</em>, Proceedings of Machine Learning Research <strong>331</strong> (2026), 1012–1034.
-            </p>
-            <p class="resource-links">
-              [<a href="https://arxiv.org/abs/2512.04523">arXiv</a>]
-              [<a href="https://proceedings.mlr.press/v331/liao26a.html">PMLR</a>]
-            </p>
-          </li>
+    <section id="papers">
+      <h2>Papers</h2>
 
-          <li>
-            <p>
-              <a class="paper-title" href="https://arxiv.org/abs/2608.16796">
-                Random matrices and Λ-distributions
-              </a><br>
-              M. Bertucci, S. Van Blarcom, V. Glancy, S. Howe, T. Madden, B. Miller,
-              S. Pal, G. Papagrigoriou, N. Raikman, and T. Tran.<br>
-              <em>Submitted.</em>
-            </p>
-            <p class="resource-links">
-              [<a href="https://arxiv.org/abs/2608.16796">arXiv</a>]
-            </p>
-          </li>
-        </ol>
-      </section>
+      <h3>Published</h3>
+      <ol class="publications">
+        <li>
+          <p>
+            <a class="paper-title" href="https://arxiv.org/abs/2512.04523">
+              An accelerated proximal bundle method for convex optimization
+            </a><br>
+            F.-Y. Liao, T. Madden, and Y. Zheng.<br>
+            <em>L4DC 2026</em>, Proceedings of Machine Learning Research <strong>331</strong> (2026), 1012–1034.
+          </p>
+          <p class="resource-links">
+            [<a href="https://arxiv.org/abs/2512.04523">arXiv</a>]
+            [<a href="https://proceedings.mlr.press/v331/liao26a.html">PMLR</a>]
+          </p>
+        </li>
+      </ol>
 
-      <section id="presentations">
-        <h2>Presentations</h2>
+      <h3>Preprints</h3>
+      <ol class="publications">
+        <li>
+          <p>
+            <a class="paper-title" href="https://arxiv.org/abs/2608.16796">
+              Matrix group Λ-distributions
+            </a><br>
+            M. Bertucci, S. Van Blarcom, V. Glancy, S. Howe, T. Madden, B. Miller,
+            S. Pal, G. Papagrigoriou, N. Raikman, and T. Tran.<br>
+            <em>Submitted, 2025.</em>
+          </p>
+          <p class="resource-links">
+            [<a href="https://arxiv.org/abs/2608.16796">arXiv</a>]
+          </p>
+        </li>
+      </ol>
+    </section>
 
-        <h3 class="minor-heading">Talks</h3>
-        <ul class="presentation-list">
-          <li>
-            <span class="date">Aug. 12, 2026.</span>
-            “On the convergence of Fisher-Rao and Wasserstein-Fisher-Rao gradient flows of the KL divergence,”
-            UCLA Computational and Applied Mathematics REU Research Presentation.
-          </li>
-          <li>
-            <span class="date">Feb. 13, 2026.</span>
-            “Acceleration with large gradient steps via the proximal bundle method,”
-            UC San Diego Mathematics of Information, Data, and Signals Seminar.
-          </li>
-          <li>
-            <span class="date">Jan. 7, 2026.</span>
-            “Random matrices and Λ-distributions,”
-            AMS Special Session on Polymath Jr. Student Research.
-          </li>
-        </ul>
+    <section id="presentations">
+      <h2>Presentations</h2>
 
-        <h3 class="minor-heading">Posters</h3>
-        <ul class="presentation-list">
-          <li>
-            <span class="date">May 28, 2026.</span>
-            “Acceleration with large gradient steps via the proximal bundle method,”
-            UC San Diego Undergraduate Engineering Research Symposium (UERS).
-          </li>
-        </ul>
-      </section>
+      <h3>Talks</h3>
+      <ul class="presentation-list">
+        <li>
+          <span class="date">August 12, 2026</span>
+          “On the convergence of Fisher-Rao and Wasserstein-Fisher-Rao gradient flows of the KL divergence,”
+          UCLA Computational and Applied Mathematics (CAM) REU Research Presentation.
+        </li>
+        <li>
+          <span class="date">February 13, 2026</span>
+          “Acceleration with large gradient steps via the proximal bundle method,”
+          UC San Diego Mathematics of Information, Data, and Signals Seminar.
+        </li>
+        <li>
+          <span class="date">January 7, 2026</span>
+          “Random matrices and Λ-distributions,”
+          AMS Special Session on Polymath Jr. Student Research.
+        </li>
+      </ul>
 
-      <section id="coursework">
-        <h2>Relevant Coursework</h2>
-        <div class="course-columns">
-          <ul>
-            <li>MATH 140ABC: Real Analysis</li>
-            <li>MATH 100ABC: Abstract Algebra</li>
-            <li>MATH 148: Analysis of Partial Differential Equations</li>
-            <li>MATH 180A: Introduction to Probability</li>
-            <li>MATH 180B: Introduction to Stochastic Processes I</li>
-            <li>MATH 114: Computational Stochastics</li>
-            <li>MATH 154: Graph Theory</li>
-            <li>MATH 120A: Introduction to Complex Analysis</li>
-            <li>MATH 105: Basic Number Theory</li>
-          </ul>
-          <ul>
-            <li>MATH 240A: Real Analysis</li>
-            <li>MATH 286: Stochastic Differential Equations</li>
-            <li>MATH 280ABC: Probability Theory</li>
-            <li>MATH 281A: Mathematical Statistics</li>
-            <li>MATH 216A: Supervised and Unsupervised Learning</li>
-            <li>MATH 216B: Deep Learning</li>
-            <li>MATH 216C: High-Dimensional Probability</li>
-            <li>MATH 294: The Mathematics of Finance</li>
-            <li>DSC 291A: Stochastic Optimization</li>
-            <li>DSC 291A: Sampling and Diffusion Models</li>
-          </ul>
-        </div>
-      </section>
+      <h3 class="posters-heading">Posters</h3>
+      <ul class="presentation-list">
+        <li>
+          <span class="date">May 28, 2026</span>
+          “Acceleration with large gradient steps via the proximal bundle method,”
+          UC San Diego Undergraduate Engineering Research Symposium (UERS).
+        </li>
+      </ul>
+    </section>
 
-      <footer>
-        <p>Last updated August 2026.</p>
-      </footer>
-    </main>
-  </div>
+    <footer>
+      <p>Last updated August 2026.</p>
+    </footer>
+  </main>
 </body>
 </html>
