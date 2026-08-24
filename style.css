@@ -68,18 +68,43 @@ a:hover {
   width: min(calc(100% - 48px), var(--page-width));
   margin: 0 auto;
   padding: 54px 0 48px;
-}
-
-.profile-section {
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
-  gap: 66px;
+  column-gap: 66px;
   align-items: start;
-  margin-bottom: 22px;
+}
+
+/* Let the profile and About become direct grid items of .page. */
+.profile-section {
+  display: contents;
 }
 
 .profile-card {
   width: 100%;
+  grid-column: 1;
+  grid-row: 1 / span 4;
+}
+
+.about-text {
+  min-width: 0;
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 26px;
+}
+
+#papers {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#presentations {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+footer {
+  grid-column: 2;
+  grid-row: 4;
 }
 
 .portrait {
@@ -122,10 +147,6 @@ h1 {
 
 .profile-link {
   margin-top: 2px;
-}
-
-.about-text {
-  min-width: 0;
 }
 
 .about-text p:first-of-type {
@@ -221,11 +242,19 @@ footer {
   .page {
     width: min(calc(100% - 34px), 720px);
     padding-top: 38px;
+    display: block;
   }
 
   .profile-section {
-    grid-template-columns: 1fr;
-    gap: 34px;
+    display: contents;
+  }
+
+  .profile-card {
+    margin-bottom: 34px;
+  }
+
+  .about-text {
+    margin-bottom: 34px;
   }
 
   .portrait {
