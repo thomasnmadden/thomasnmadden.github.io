@@ -1,0 +1,27 @@
+name: Install exact CV
+
+on:
+  push:
+    paths:
+      - 'cv_exact_chunks/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install exact uploaded PDF
+        run: |
+          cat cv_exact_chunks/part* | base64 -d > cv.pdf
+          echo "51e08ca8e4a61ca5f9621b8498b66f871514e21efe4c2d331609c98fa03442af  cv.pdf" | sha256sum -c -
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -rf cv_exact_chunks .github/workflows/cv-exact.yml
+          git add cv.pdf
+          git commit -m "Use exact uploaded CV PDF"
+          git push
