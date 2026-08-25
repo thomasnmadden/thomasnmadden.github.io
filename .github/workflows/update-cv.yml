@@ -15,7 +15,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Restore exact uploaded PDF
         run: |
-          cat cv_original_chunks/part* | base64 -d > cv.pdf
+          cat cv_original_chunks/part{00..14} > /tmp/cv.b64
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('cv_original_chunks/part15').read_text()
+          Path('/tmp/cv.b64').write_text(Path('/tmp/cv.b64').read_text() + p[:4050] + 'n' + p[4050:])
+          PY
+          base64 -d /tmp/cv.b64 > cv.pdf
           echo "2e786a6e067d52a408b224e5ff8b6595b2c6e429ef8035d04f3366022542c417  cv.pdf" | sha256sum -c -
       - name: Commit exact CV
         run: |
@@ -24,5 +30,3 @@ jobs:
           git add cv.pdf
           git commit -m "Use exact uploaded CV PDF" || exit 0
           git push
-
-# Trigger exact CV restore after full upload.
