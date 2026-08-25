@@ -1,24 +1,28 @@
-name: Update CV
+name: Restore Original CV
 
 on:
   push:
     paths:
-      - '.github/workflows/update-cv.yml'
+      - 'cv_original_chunks/READY'
 
 permissions:
   contents: write
 
 jobs:
-  update-cv:
+  restore-cv:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Decode CV
-        run: cat cv_chunks/part* | base64 -d > cv.pdf
-      - name: Commit CV
+      - name: Decode original CV
+        run: |
+          cat cv_original_chunks/part* | base64 -d > cv.pdf.new
+          echo "2e786a6e067d52a408b224e5ff8b6595b2c6e429ef8035d04f3366022542c417  cv.pdf.new" | sha256sum -c -
+          mv cv.pdf.new cv.pdf
+      - name: Commit original CV and clean staging files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -rf cv_chunks cv_original_chunks .github/workflows/update-cv.yml
           git add cv.pdf
-          git commit -m "Update CV" || exit 0
+          git commit -m "Restore original CV PDF"
           git push
