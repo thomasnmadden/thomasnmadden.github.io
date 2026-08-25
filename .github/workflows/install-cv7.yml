@@ -5,7 +5,7 @@ on:
     branches:
       - cv7-stage
     paths:
-      - 'cv7_patch.json'
+      - 'cv7_patch.b64'
 
 permissions:
   contents: write
@@ -20,9 +20,10 @@ jobs:
           echo "f3816ed6b6f586a9e6c30d5c8441619198b226a3556345dcaeb10b81c34a9f8e  cv.pdf" | sha256sum -c -
           python - <<'PY'
           from pathlib import Path
-          import json, base64
+          import json, base64, zlib
           old = Path('cv.pdf').read_bytes()
-          ops = json.loads(Path('cv7_patch.json').read_text())
+          patch = zlib.decompress(base64.b64decode(Path('cv7_patch.b64').read_text())).decode()
+          ops = json.loads(patch)
           out = bytearray()
           for op in ops:
               if op[0] == 'c':
@@ -36,7 +37,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm -rf cv7_chunks cv7_patch.json .github/workflows/install-cv7.yml
+          git rm -rf cv7_chunks cv7_patch.b64 .github/workflows/install-cv7.yml
           git add cv.pdf
           git commit -m "Replace CV with exact uploaded PDF"
           git push
