@@ -1,0 +1,29 @@
+name: Install CV7 exactly
+
+on:
+  push:
+    branches:
+      - cv7-stage
+    paths:
+      - 'cv7_chunks/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct exact PDF
+        run: |
+          cat cv7_chunks/part* | base64 -d > cv.pdf
+          echo "4295e8570130259ff943a897af2662fcfb90bb5e46018282b13d7692c664ae44  cv.pdf" | sha256sum -c -
+      - name: Commit exact PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -rf cv7_chunks .github/workflows/install-cv7.yml
+          git add cv.pdf
+          git commit -m "Replace CV with exact uploaded PDF"
+          git push
