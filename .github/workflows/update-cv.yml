@@ -24,3 +24,5 @@ jobs:
           git add cv.pdf
           git commit -m "Use exact uploaded CV PDF" || exit 0
           git push
+
+# Trigger exact CV restore after full upload.
